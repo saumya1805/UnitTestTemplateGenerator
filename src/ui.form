@@ -1,187 +1,315 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="ui">
-  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="15" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="32" y="40" width="746" height="560"/>
+      <xy x="32" y="40" width="1212" height="903"/>
     </constraints>
     <properties>
-      <background color="-8869636"/>
+      <background color="-14933466"/>
     </properties>
     <border type="none"/>
     <children>
-      <component id="6f37" class="javax.swing.JLabel" binding="l1">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <foreground color="-9326405"/>
-          <text value="UNIT TEST APP"/>
-        </properties>
-      </component>
       <component id="a9bb4" class="javax.swing.JTextField" binding="textField1" default-binding="true">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="2" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="600" height="45"/>
+            <preferred-size width="600" height="45"/>
+            <maximum-size width="600" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-15260877"/>
-          <text value=""/>
+          <alignmentX value="0.5"/>
+          <background color="-12170932"/>
+          <caretColor color="-8754649"/>
+          <disabledTextColor color="-526345"/>
+          <focusable value="true"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-2236963"/>
+          <horizontalAlignment value="2"/>
+          <selectionColor color="-13479751"/>
+          <text value="Enter file path here:"/>
+          <toolTipText value="Enter file path here"/>
+          <verifyInputWhenFocusTarget value="true"/>
         </properties>
       </component>
       <hspacer id="c55ff">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
-      <hspacer id="972f2">
-        <constraints>
-          <grid row="2" column="3" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <component id="3e845" class="javax.swing.JTextField" binding="textField2" default-binding="true">
         <constraints>
-          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-15260877"/>
+          <autoscrolls value="true"/>
+          <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-2236963"/>
+          <text value="Parameters"/>
+          <toolTipText value="Parameters"/>
         </properties>
       </component>
       <component id="93e33" class="javax.swing.JTextField" binding="textField3" default-binding="true">
         <constraints>
-          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="9" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-14074294"/>
-          <text value=""/>
+          <background color="-12170932"/>
+          <caretColor color="-2236963"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-2236963"/>
+          <text value="Return Value"/>
+          <toolTipText value="Return Value"/>
+          <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
       <component id="d8b02" class="javax.swing.JButton" binding="chooseFilePathButton" default-binding="true">
         <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="175" height="40"/>
+            <preferred-size width="175" height="40"/>
+            <maximum-size width="175" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <background color="-12170932"/>
+          <font name="Courier" size="14" style="0"/>
+          <foreground color="-12170932"/>
+          <hideActionText value="false"/>
+          <horizontalAlignment value="0"/>
+          <opaque value="false"/>
           <text value="Choose file path"/>
-        </properties>
-      </component>
-      <component id="a91cf" class="javax.swing.JLabel" binding="Before">
-        <constraints>
-          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="@Before generation"/>
-        </properties>
-      </component>
-      <component id="52e5e" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="@Test generation"/>
         </properties>
       </component>
       <component id="69ec3" class="javax.swing.JTextField" binding="textField4" default-binding="true">
         <constraints>
-          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="11" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-14204086"/>
+          <background color="-12170932"/>
         </properties>
       </component>
       <component id="91ec8" class="javax.swing.JTextField" binding="textField5" default-binding="true">
         <constraints>
-          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="11" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-14205366"/>
+          <background color="-12170932"/>
         </properties>
       </component>
       <component id="577ef" class="javax.swing.JTextField" binding="textField6" default-binding="true">
         <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="12" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-14205366"/>
+          <background color="-12170932"/>
         </properties>
       </component>
       <component id="8d13a" class="javax.swing.JTextField" binding="textField7" default-binding="true">
         <constraints>
-          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="12" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
         <properties>
-          <background color="-13877686"/>
+          <background color="-12170932"/>
         </properties>
       </component>
       <vspacer id="8f699">
         <constraints>
-          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="14" column="3" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
       <component id="4ee6b" class="javax.swing.JButton" binding="generateBeforeButton" default-binding="true">
         <constraints>
-          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="175" height="40"/>
+            <preferred-size width="175" height="40"/>
+            <maximum-size width="175" height="40"/>
+          </grid>
         </constraints>
         <properties>
+          <font name="Courier" size="14" style="0"/>
+          <foreground color="-12170932"/>
           <text value="Generate before"/>
         </properties>
       </component>
       <component id="aada1" class="javax.swing.JButton" binding="generateTestButton" default-binding="true">
         <constraints>
-          <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="11" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="175" height="40"/>
+            <preferred-size width="175" height="40"/>
+            <maximum-size width="175" height="40"/>
+          </grid>
         </constraints>
         <properties>
           <background color="-14468031"/>
-          <foreground color="-14782789"/>
+          <font name="Courier" size="14" style="0"/>
+          <foreground color="-12170932"/>
           <text value="Generate test"/>
         </properties>
       </component>
-      <component id="9fec3" class="javax.swing.JTextField" binding="textField8" default-binding="true">
-        <constraints>
-          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
       <component id="b4ac2" class="javax.swing.JTextField" binding="textField9" default-binding="true">
         <constraints>
-          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
+          <grid row="8" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-2236963"/>
+          <text value="FunctionName"/>
+          <toolTipText value="Function Name"/>
+        </properties>
       </component>
+      <hspacer id="e11f9">
+        <constraints>
+          <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="44fda" class="javax.swing.JLabel" binding="tableTitle">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Courier" size="22" style="1"/>
+          <foreground color="-592138"/>
+          <text value="                          Information about the file"/>
+        </properties>
+      </component>
+      <vspacer id="35243">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="3" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <preferred-size width="11" height="20"/>
+          </grid>
+        </constraints>
+      </vspacer>
+      <vspacer id="92458">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="91718">
+        <constraints>
+          <grid row="13" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="6f37" class="javax.swing.JLabel" binding="l1">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Courier" size="26" style="1"/>
+          <foreground color="-1247498"/>
+          <horizontalTextPosition value="11"/>
+          <iconTextGap value="8"/>
+          <labelFor value="a9bb4"/>
+          <text value="Unit Test Template Generator"/>
+        </properties>
+      </component>
+      <component id="52e5e" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Courier" size="22" style="0"/>
+          <foreground color="-592138"/>
+          <text value="           @Test generation"/>
+        </properties>
+      </component>
+      <hspacer id="8865e">
+        <constraints>
+          <grid row="10" column="5" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
       <scrollpane id="7ea08">
         <constraints>
-          <grid row="2" column="1" row-span="2" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="2" row-span="2" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="1000" height="400"/>
+            <preferred-size width="1000" height="400"/>
+            <maximum-size width="1000" height="400"/>
+          </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <autoscrolls value="true"/>
+          <background color="-1"/>
+          <font name="Courier" size="12" style="0"/>
+          <foreground color="-15260877"/>
+          <horizontalScrollBarPolicy value="32"/>
+          <name value="table1"/>
+          <opaque value="false"/>
+          <verifyInputWhenFocusTarget value="false"/>
+          <verticalScrollBarPolicy value="22"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="8f8e1" class="javax.swing.JTable" binding="table1" default-binding="true">
             <constraints/>
-            <properties/>
+            <properties>
+              <fillsViewportHeight value="true"/>
+              <foreground color="-12170932"/>
+              <preferredScrollableViewportSize width="1000" height="400"/>
+              <preferredSize width="1000" height="400"/>
+            </properties>
           </component>
         </children>
       </scrollpane>
-      <component id="5e2a5" class="javax.swing.JScrollBar" binding="scrollBar1" default-binding="true">
+      <component id="9109" class="javax.swing.JTextField" binding="textField8" default-binding="true">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="0" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="4" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="275" height="45"/>
+            <preferred-size width="275" height="45"/>
+            <maximum-size width="275" height="45"/>
+          </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-12170932"/>
+          <editable value="true"/>
+          <enabled value="true"/>
+          <focusable value="true"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-2236963"/>
+          <horizontalAlignment value="2"/>
+          <text value="Object Name"/>
+          <toolTipText value="Object Name"/>
+        </properties>
+      </component>
+      <component id="a91cf" class="javax.swing.JLabel" binding="Before">
+        <constraints>
+          <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Courier" size="22" style="0"/>
+          <foreground color="-592138"/>
+          <text value="             @Before generation"/>
+        </properties>
       </component>
     </children>
   </grid>

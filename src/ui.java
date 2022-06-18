@@ -75,14 +75,14 @@ public class ui extends JFrame{
     private JButton generateTestButton;
     private JTextField textField8;
     private JTextField textField9;
-    private JScrollBar scrollBar1;
+    private JLabel tableTitle;
     private JLabel test;
 
     DefaultTableModel model;
 
     ui() throws IOException {
         add(panel1);
-        setSize(1600,1200);
+        setSize(1400,1000);
 
         chooseFilePathButton.addActionListener(new ActionListener() {
             @Override
@@ -418,4 +418,5 @@ public class ui extends JFrame{
             output.close();
         }
     }
+
 }
