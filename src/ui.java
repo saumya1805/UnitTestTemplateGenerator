@@ -115,6 +115,126 @@ public class ui extends JFrame{
                 }
             }
         });
+        textField8.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField8.getText().trim().equals("Object Name")){
+                    textField8.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField8.getText().trim().equals("")){
+                    textField8.setText("Object Name");
+                }
+            }
+        });
+        textField9.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField9.getText().trim().equals("Function Name")){
+                    textField9.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField9.getText().trim().equals("")){
+                    textField9.setText("Function Name");
+                }
+            }
+        });
+        textField2.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField2.getText().trim().equals("Parameters")){
+                    textField2.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField2.getText().trim().equals("")){
+                    textField2.setText("Parameters");
+                }
+            }
+        });
+        textField3.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField3.getText().trim().equals("Return Value")){
+                    textField3.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField3.getText().trim().equals("")){
+                    textField3.setText("Return Value");
+                }
+            }
+        });
+        textField4.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField4.getText().trim().equals("Parameters")){
+                    textField4.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField4.getText().trim().equals("")){
+                    textField4.setText("Parameters");
+                }
+            }
+        });
+        textField5.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField5.getText().trim().equals("Return Value")){
+                    textField5.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField5.getText().trim().equals("")){
+                    textField5.setText("Return Value");
+                }
+            }
+        });
+        textField6.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField6.getText().trim().equals("Assert Equals")){
+                    textField6.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField6.getText().trim().equals("")){
+                    textField6.setText("Assert Equals");
+                }
+            }
+        });
+        textField7.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(textField7.getText().trim().equals("Assert Equals")){
+                    textField7.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(textField7.getText().trim().equals("")){
+                    textField7.setText("Assert Equals");
+                }
+            }
+        });
     }
 
     //Function that parses the code to be tested
@@ -294,7 +414,6 @@ public class ui extends JFrame{
                     }
                 }
             }
-            //System.out.println(whenReturnThisFunctions);
             numKeys=functionData.size();
         }
 
@@ -319,17 +438,16 @@ public class ui extends JFrame{
         row[0]=entry.getKey();
         int flag = 0;
         for (Map.Entry<String, List<String>> entry2 : entry.getValue().entrySet()) {
-            if(flag==0){
-                flag=1;
+
+            for(int i=0;i<entry2.getValue().size();i++){
+                if(flag==0){
+                    flag=1;
+                }
+                else{
+                    row[0]="";
+                }
                 row[1]=entry2.getKey();
-                row[2]=entry2.getValue();
-                model.addRow(row);
-                continue;
-            }
-            else{
-                row[0]="";
-                row[1]=entry2.getKey();
-                row[2]=entry2.getValue();
+                row[2]= entry2.getValue().get(i);
                 model.addRow(row);
             }
         }
@@ -348,7 +466,8 @@ public class ui extends JFrame{
         t3=textField2.getText();
         t4=textField3.getText();
 
-        beforeData.add(t1+"."+t2);
+        System.out.println(t1+t2);
+        beforeData.add(t1+"."+t2+"()");
         System.out.println(beforeData);
 
         output.write("when("+t1+"."+t2+"("+t3+").thenReturn("+t4+");\n");
@@ -366,6 +485,7 @@ public class ui extends JFrame{
             for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()) {
                 s2=entry2.getKey();
                 String testString = functionData.get(s1).get(s2).get(0);
+                System.out.println(testString);
                 if (beforeData.contains(testString)) {
                     functionData.get(s1).get(s2).remove(0);
                     if (functionData.get(s1).get(s2).size() == 0) {

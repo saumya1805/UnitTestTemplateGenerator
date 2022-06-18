@@ -101,6 +101,9 @@
         </constraints>
         <properties>
           <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-1"/>
+          <text value="Parameters"/>
         </properties>
       </component>
       <component id="91ec8" class="javax.swing.JTextField" binding="textField5" default-binding="true">
@@ -113,6 +116,9 @@
         </constraints>
         <properties>
           <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-1"/>
+          <text value="Return Value"/>
         </properties>
       </component>
       <component id="577ef" class="javax.swing.JTextField" binding="textField6" default-binding="true">
@@ -125,6 +131,9 @@
         </constraints>
         <properties>
           <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-1"/>
+          <text value="Assert Equals"/>
         </properties>
       </component>
       <component id="8d13a" class="javax.swing.JTextField" binding="textField7" default-binding="true">
@@ -137,6 +146,9 @@
         </constraints>
         <properties>
           <background color="-12170932"/>
+          <font name="Courier" size="18" style="0"/>
+          <foreground color="-1"/>
+          <text value="Assert Equals"/>
         </properties>
       </component>
       <vspacer id="8f699">
@@ -185,7 +197,7 @@
           <background color="-12170932"/>
           <font name="Courier" size="18" style="0"/>
           <foreground color="-2236963"/>
-          <text value="FunctionName"/>
+          <text value="Function Name"/>
           <toolTipText value="Function Name"/>
         </properties>
       </component>
@@ -201,6 +213,8 @@
         <properties>
           <font name="Courier" size="22" style="1"/>
           <foreground color="-592138"/>
+          <horizontalTextPosition value="10"/>
+          <iconTextGap value="15"/>
           <text value="                          Information about the file"/>
         </properties>
       </component>
@@ -228,7 +242,8 @@
         <properties>
           <font name="Courier" size="26" style="1"/>
           <foreground color="-1247498"/>
-          <horizontalTextPosition value="11"/>
+          <horizontalTextPosition value="10"/>
+          <icon value="icons/My project.png"/>
           <iconTextGap value="8"/>
           <labelFor value="a9bb4"/>
           <text value="Unit Test Template Generator"/>
@@ -239,7 +254,7 @@
           <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Courier" size="22" style="0"/>
+          <font name="Courier" size="22" style="1"/>
           <foreground color="-592138"/>
           <text value="           @Test generation"/>
         </properties>
@@ -293,6 +308,8 @@
           <background color="-12170932"/>
           <editable value="true"/>
           <enabled value="true"/>
+          <focusCycleRoot value="true"/>
+          <focusTraversalPolicyProvider value="true"/>
           <focusable value="true"/>
           <font name="Courier" size="18" style="0"/>
           <foreground color="-2236963"/>
@@ -306,7 +323,7 @@
           <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font name="Courier" size="22" style="0"/>
+          <font name="Courier" size="22" style="1"/>
           <foreground color="-592138"/>
           <text value="             @Before generation"/>
         </properties>
