@@ -538,5 +538,4 @@ public class ui extends JFrame{
             output.close();
         }
     }
-
 }
