@@ -62,9 +62,6 @@ private GackUtil gackUtil;
 private LabelService labelService;
 
 @Autowired
-private LabelService labelService;
-
-@Autowired
 private LogService logService;
 
 @Autowired

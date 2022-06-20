@@ -5,13 +5,13 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.*;
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import static javax.lang.model.SourceVersion.*;
 
 public class ui extends JFrame{
 
+    public Set<String> box2=new HashSet<>();
     public static boolean check = false;
     String s1;
 
@@ -76,13 +76,31 @@ public class ui extends JFrame{
     private JTextField textField8;
     private JTextField textField9;
     private JLabel tableTitle;
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
+    private JButton setupCompleteButton;
+    private JLabel testHead;
     private JLabel test;
+    public int ActionFlag=0;
 
+    public int testFlag=0;
     DefaultTableModel model;
-
     ui() throws IOException {
+
         add(panel1);
+        comboBox1.setEditable(true);
+        Color color=new Color(70,73,76);
+        comboBox1.getEditor().getEditorComponent().setBackground(color);
+        comboBox2.setEditable(true);
+        Color color2=new Color(70,73,76);
+        comboBox2.getEditor().getEditorComponent().setBackground(color);
+        table1.setBackground(color);
+        table1.setForeground(Color.WHITE);
         setSize(1400,1000);
+        model=new DefaultTableModel();
+        Object[] column={"Public functions being called","External objects being referenced","Functions being called by external objects"};
+        model.setColumnIdentifiers(column);
+        table1.setModel(model);
 
         chooseFilePathButton.addActionListener(new ActionListener() {
             @Override
@@ -115,36 +133,7 @@ public class ui extends JFrame{
                 }
             }
         });
-        textField8.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if(textField8.getText().trim().equals("Object Name")){
-                    textField8.setText("");
-                }
-            }
 
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textField8.getText().trim().equals("")){
-                    textField8.setText("Object Name");
-                }
-            }
-        });
-        textField9.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if(textField9.getText().trim().equals("Function Name")){
-                    textField9.setText("");
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if(textField9.getText().trim().equals("")){
-                    textField9.setText("Function Name");
-                }
-            }
-        });
         textField2.addFocusListener(new FocusAdapter() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -233,6 +222,34 @@ public class ui extends JFrame{
                 if(textField7.getText().trim().equals("")){
                     textField7.setText("Assert Equals");
                 }
+            }
+        });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(ActionFlag==0){
+                    ActionFlag=1;
+                }
+                else{
+                    String compare= (String) comboBox1.getSelectedItem();
+                    for(Map.Entry<String,HashMap<String,List<String>>> entry:functionData.entrySet()){
+                        for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()){
+                            if(entry2.getKey()==compare){
+                                for(int i=0;i<entry2.getValue().size();i++){
+                                    box2.add(entry2.getValue().get(i));
+                                }
+                            }
+                        }
+                    }
+                    for(String temp:box2){
+                        comboBox2.addItem(temp);
+                    }
+                }
+            }
+        });
+        setupCompleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
             }
         });
     }
@@ -426,32 +443,28 @@ public class ui extends JFrame{
         for (int i = 0; i < autowiredObjectList.size(); i++) {
             output.write("@Mock\n");
             output.write(autowiredObjectList.get(i) + " mock" + autowiredObjectList.get(i) + ";\n\n");
+            comboBox1.addItem(autowiredObjectList.get(i));
         }
 
-        model=new DefaultTableModel();
-        Object[] column={"Public functions being called","External objects being referenced","Functions being called by external objects"};
         final Object[] row=new Object [4];
-        model.setColumnIdentifiers(column);
-        table1.setModel(model);
 
         for(Map.Entry<String, HashMap<String, List<String>>> entry : functionData.entrySet()) {
-        row[0]=entry.getKey();
-        int flag = 0;
-        for (Map.Entry<String, List<String>> entry2 : entry.getValue().entrySet()) {
+            row[0] = entry.getKey();
+            int flag = 0;
+            for (Map.Entry<String, List<String>> entry2 : entry.getValue().entrySet()) {
 
-            for(int i=0;i<entry2.getValue().size();i++){
-                if(flag==0){
-                    flag=1;
+                for (int i = 0; i < entry2.getValue().size(); i++) {
+                    if (flag == 0) {
+                        flag = 1;
+                    } else {
+                        row[0] = "";
+                    }
+                    row[1] = entry2.getKey();
+                    row[2] = entry2.getValue().get(i);
+                    model.addRow(row);
                 }
-                else{
-                    row[0]="";
-                }
-                row[1]=entry2.getKey();
-                row[2]= entry2.getValue().get(i);
-                model.addRow(row);
             }
         }
-    }
 
         output.write("@Before\n");
         output.write("public void beforeTest(){\n\n");
@@ -461,16 +474,16 @@ public class ui extends JFrame{
 }
 
     public void generateBefore() throws IOException {
-        t1=textField8.getText();
-        t2=textField9.getText();
+
+        t1=(String) comboBox2.getSelectedItem();
+        t1=t1.substring(0,t1.indexOf("("));
+        //t2=textField9.getText();
         t3=textField2.getText();
         t4=textField3.getText();
 
-        System.out.println(t1+t2);
-        beforeData.add(t1+"."+t2+"()");
-        System.out.println(beforeData);
+        beforeData.add(t1+"()");
 
-        output.write("when("+t1+"."+t2+"("+t3+").thenReturn("+t4+");\n");
+        output.write("when("+t1+"("+t3+").thenReturn("+t4+");\n");
     }
 
     public void generateTest() throws IOException {
@@ -534,6 +547,7 @@ public class ui extends JFrame{
         }
 
         if(functionData.size()==0){
+            System.out.println("Hi");
             output.write("}");
             output.close();
         }
