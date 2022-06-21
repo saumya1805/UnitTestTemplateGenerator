@@ -84,6 +84,8 @@ public class ui extends JFrame{
     public int ActionFlag=0;
 
     public int testFlag=0;
+
+    public int spare;
     DefaultTableModel model;
     ui() throws IOException {
 
@@ -92,8 +94,10 @@ public class ui extends JFrame{
         Color color=new Color(70,73,76);
         comboBox1.getEditor().getEditorComponent().setBackground(color);
         comboBox2.setEditable(true);
-        Color color2=new Color(70,73,76);
+        Color color2=new Color(251,251,251);
         comboBox2.getEditor().getEditorComponent().setBackground(color);
+        comboBox1.getEditor().getEditorComponent().setForeground(color2);
+        comboBox2.getEditor().getEditorComponent().setForeground(color2);
         table1.setBackground(color);
         table1.setForeground(Color.WHITE);
         setSize(1400,1000);
@@ -250,6 +254,30 @@ public class ui extends JFrame{
         setupCompleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                for(Map.Entry<String,HashMap<String,List<String>>> entry:functionData.entrySet()){
+                    s1=entry.getKey();
+                    for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()) {
+                        s2=entry2.getKey();
+                        for(int i=0;i<functionData.get(s1).get(s2).size();i++){
+                            if(beforeData.contains(functionData.get(s1).get(s2).get(i))){
+                                functionData.get(s1).get(s2).set(i,"");
+                            }
+                        }
+
+                    }
+                }
+
+                for(Map.Entry<String,HashMap<String,List<String>>> entry:functionData.entrySet()){
+                    s1=entry.getKey();
+                    for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()){
+                        s2=entry2.getKey();
+                        testHead.setText(s1.substring(0,s1.indexOf("("))+"():"+functionData.get(s1).get(s2).get(0));
+                        System.out.println("TestHead is: "+testHead.getText());
+                        break;
+                    }
+                    break;
+                }
             }
         });
     }
@@ -435,9 +463,9 @@ public class ui extends JFrame{
         }
 
         //Generating @Mocks in the file
-        for (int i = 0; i < externalObjectList.size(); i++) {
+        for (String s : externalObjectList) {
             output.write("@Mock\n");
-            output.write(externalObjectList.get(i) + " mock" + externalObjectList.get(i) + ";\n\n");
+            output.write(s + " mock" + s + ";\n\n");
         }
 
         for (int i = 0; i < autowiredObjectList.size(); i++) {
@@ -476,12 +504,11 @@ public class ui extends JFrame{
     public void generateBefore() throws IOException {
 
         t1=(String) comboBox2.getSelectedItem();
+        beforeData.add(t1);
         t1=t1.substring(0,t1.indexOf("("));
         //t2=textField9.getText();
         t3=textField2.getText();
         t4=textField3.getText();
-
-        beforeData.add(t1+"()");
 
         output.write("when("+t1+"("+t3+").thenReturn("+t4+");\n");
     }
@@ -497,19 +524,14 @@ public class ui extends JFrame{
             s1=entry.getKey();
             for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()) {
                 s2=entry2.getKey();
-                String testString = functionData.get(s1).get(s2).get(0);
-                System.out.println(testString);
-                if (beforeData.contains(testString)) {
-                    functionData.get(s1).get(s2).remove(0);
-                    if (functionData.get(s1).get(s2).size() == 0) {
-                        functionData.get(s1).remove(s2);
-                    }
-                    return;
+                if(entry2.getValue().size()==0){
+                    continue;
                 }
                 break;
             }
             break;
         }
+
 
         if(numKeys>functionData.size() || !check){
             for(Map.Entry<String, HashMap<String,List<String>>> entry:functionData.entrySet()){
@@ -527,8 +549,9 @@ public class ui extends JFrame{
         t3=textField6.getText();
         t4=textField7.getText();
 
-        //l3.setText(whenReturnThisFunctions.get(s1).get(0));
+
         String temp=functionData.get(s1).get(s2).get(0);
+        if(temp!="")
         output.write("when("+temp.substring(0,temp.indexOf("(")+1)+t1+")).thenReturn("+t2+");\n");
 
         if(functionData.get(s1).size()==1 && functionData.get(s1).get(s2).size()==1){
@@ -547,9 +570,21 @@ public class ui extends JFrame{
         }
 
         if(functionData.size()==0){
-            System.out.println("Hi");
             output.write("}");
             output.close();
         }
+
+        for(Map.Entry<String,HashMap<String,List<String>>> entry:functionData.entrySet()){
+            s1=entry.getKey();
+            for(Map.Entry<String,List<String>> entry2:entry.getValue().entrySet()) {
+                s2=entry2.getKey();
+                if(entry2.getValue().size()==0){
+                    continue;
+                }
+                break;
+            }
+            break;
+        }
+        testHead.setText(s1.substring(0,s1.indexOf("("))+"():"+functionData.get(s1).get(s2).get(0));
     }
 }
