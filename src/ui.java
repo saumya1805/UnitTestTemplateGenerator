@@ -21,7 +21,7 @@ public class ui extends JFrame{
 
     public static int beforeFlag = 0;
 
-    FileWriter output = new FileWriter("TestCodeTester.java");
+    FileWriter output = new FileWriter("TestCodeTester1.java");
 
     //Name of the class being tested
     public static String nameOfClassBeingTested;
@@ -299,7 +299,7 @@ public class ui extends JFrame{
         String line;
 
         //Creates file that will store the unit test code corresponding to the code to be tested
-        File file1 = new File("TestCodeTester.java");
+        File file1 = new File("TestCodeTester1.java");
 
         //To write into the unit test code file
         //FileWriter output = new FileWriter("TestCodeTester.java");
@@ -307,7 +307,7 @@ public class ui extends JFrame{
         try {
             // create a new file with name specified
             // by the file object
-            boolean value = file.createNewFile();
+            boolean value = file1.createNewFile();
             if (value) {
                 System.out.println("New Java File is created.");
             } else {
@@ -551,8 +551,16 @@ public class ui extends JFrame{
 
 
         String temp=functionData.get(s1).get(s2).get(0);
-        if(temp!="")
-        output.write("when("+temp.substring(0,temp.indexOf("(")+1)+t1+")).thenReturn("+t2+");\n");
+        if(temp!=""){
+            if(Objects.equals(t2, "None")){
+                int index=temp.indexOf(".");
+                output.write("doNothing().when("+temp.substring(0,index)+")."+temp.substring(index+1,temp.indexOf(")"))+t1+");\n");
+            }
+            else{
+                output.write("when("+temp.substring(0,temp.indexOf("(")+1)+t1+")).thenReturn("+t2+");\n");
+            }
+        }
+
 
         if(functionData.get(s1).size()==1 && functionData.get(s1).get(s2).size()==1){
             output.write("Assert.assertEquals("+nameOfClassBeingTested+"."+s1.substring(0,s1.indexOf("("))+"("+t3+"),"+t4+");\n");
